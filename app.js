@@ -20,6 +20,7 @@ const mongoose = require("mongoose");
 
 const dotenv = require("dotenv");
 dotenv.config();
+console.log(dotenv);
 
 // Security Middleware implements
 app.use(helmet());
@@ -43,7 +44,7 @@ app.use(limiter);
 // Database Connect
 
 const URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.fsp0qs4.mongodb.net/Task-manager?retryWrites=true&w=majority`;
-
+// let URL = `mongodb+srv://amit:ucgd4J9KXjWtFKnE@cluster0.fsp0qs4.mongodb.net/Task-manager?retryWrites=true&w=majority`;
 mongoose.connect(
   URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -53,7 +54,7 @@ mongoose.connect(
   }
 );
 
-// Front End Tagging api 
+// Front End Tagging api
 app.use("/api/v1", router);
 
 module.exports = app;
